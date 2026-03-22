@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400;1,9..40,500;1,9..40,600&family=Syne:wght@800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Syne", ui-sans-serif, system-ui, sans-serif;
+
+  --color-cream: #FAF7F2;
+  --color-terracotta: #C1572B;
+  --color-charcoal: #1C1917;
+  --color-sand: #EDE8DF;
+  --color-muted: #7A7168;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-charcoal);
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, h5, h6, .font-syne {
+  font-family: var(--font-display);
+}
+

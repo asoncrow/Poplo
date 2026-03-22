@@ -1,0 +1,62 @@
+{
+  "entities": {
+    "Site": {
+      "title": "Site",
+      "description": "A website registered by a user",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "The UID of the user who owns the site" },
+        "siteName": { "type": "string" },
+        "siteUrl": { "type": "string" },
+        "createdAt": { "type": "timestamp" }
+      },
+      "required": ["userId", "siteName", "siteUrl", "createdAt"]
+    },
+    "SiteConfig": {
+      "title": "SiteConfig",
+      "description": "Configuration for a site's ticker",
+      "type": "object",
+      "properties": {
+        "siteId": { "type": "string", "description": "The ID of the site this config belongs to" },
+        "notificationType": { "type": "string" },
+        "messageTemplate": { "type": "string" },
+        "position": { "type": "string" },
+        "theme": { "type": "string" },
+        "delaySeconds": { "type": "number" },
+        "intervalSeconds": { "type": "number" },
+        "minDaily": { "type": "number" },
+        "maxDaily": { "type": "number" },
+        "updatedAt": { "type": "timestamp" }
+      },
+      "required": ["siteId", "updatedAt"]
+    },
+    "NotificationEvent": {
+      "title": "NotificationEvent",
+      "description": "A notification event for a site",
+      "type": "object",
+      "properties": {
+        "siteId": { "type": "string" },
+        "name": { "type": "string" },
+        "city": { "type": "string" },
+        "action": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "createdAt": { "type": "timestamp" }
+      },
+      "required": ["siteId", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/sites/{siteId}": {
+      "schema": "Site",
+      "description": "Stores user sites"
+    },
+    "/site_configs/{configId}": {
+      "schema": "SiteConfig",
+      "description": "Stores configuration for sites"
+    },
+    "/notification_events/{eventId}": {
+      "schema": "NotificationEvent",
+      "description": "Stores notification events for sites"
+    }
+  }
+}
